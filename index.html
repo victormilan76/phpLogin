@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login-HTML5-PHP-MARIADB</title>
+    <title>Login</title>
 </head>
 <body>
     <h1>LOGIN</h1>
     <form action="validateLogin.php" method="post">
-        <input type="text" name="user" id="" placeholder="User">
-        <input type="text" name="password" id="" placeholder="Password">
-        <input type="button" value="LOGIN">
+        <input type="text" name="user" id="" required/ pattern="[0-9A-Z ]{2,50}">
+        <input type="text" name="password" id="" placeholder="Password" required/ >
+        <input type="button" value="Ingresar">
     </form>
-    <p>@copyrigth todos los derechos reservados correo:victormilan76@gmail.com</p>
+
+    <p>@copyright, todos los derechos reservados correo:victormilan76@gmail.com  </p>
 </body>
 </html>
