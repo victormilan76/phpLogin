@@ -6,12 +6,14 @@
    $user = $_POST['user'];
 	$password = $_POST['password'];
    
-	$query = "SELECT ID_USER,NAME,USER_NAME,PASSWORD FROM USER where USER_NAME='$user' and PASSWORD='$password'";
+   //echo $user."-".$password;
+   
+	$query = "SELECT ID_USER,NAME,USER,PASSWORD,DATE_CREATION,ROL,STATUS FROM USER where USER='$user' and PASSWORD='$password'";
 	$result = mysqli_query($con,$query);
 	if(!$result){die("query Failed"); }
 	$row = mysqli_fetch_array($result);
 
-   if ($row['USER_NAME']==$user && $row['PASSWORD']==$password)
+   if ($row['USER']==$user && $row['PASSWORD']==$password)
 	{
       echo "<script> window.location.href='home.html';</script>";
    }
