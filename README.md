@@ -15,14 +15,13 @@
 
 
 
-#SOBRE LA BD
 
 
 
 
 **Detalles de la BD**
 
-The <abbr title="Hyper Text Markup Language">HTML</abbr> Importar la BASE DE DATOS <abbr title="World Wide Web Consortium">"bd_nube"</abbr> en su servidor del cual desea hacer correr el programa.
+Importar la BASE DE DATOS <abbr title="World Wide Web Consortium">"bd_nube"</abbr> en su servidor del cual desea hacer correr el programa.
 
 
 
