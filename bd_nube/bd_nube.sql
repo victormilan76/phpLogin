@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-03-2024 a las 16:16:34
+-- Tiempo de generación: 22-03-2024 a las 05:24:23
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -28,23 +28,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `client` (
-  `ID_CLIENT` bigint(20) NOT NULL,
-  `CL_ID_USER` bigint(20) UNSIGNED NOT NULL,
-  `NAME` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `FIRST_NAME` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `CI` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `EXP` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
-  `DATE_CREATION` date NOT NULL,
-  `STATUS` char(1) COLLATE utf8_unicode_ci NOT NULL
+  `CL_ID_BI` bigint(20) UNSIGNED NOT NULL,
+  `CL_US_ID_BI` bigint(20) UNSIGNED NOT NULL,
+  `CL_NAME_VC` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `CL_FIRST_NAME_VC` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `CL_CI_VC` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `CL_EXP_VC` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `CL_DATE_CREATION_DT` date NOT NULL,
+  `CL_STATUS_BT` char(0) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `client`
 --
 
-INSERT INTO `client` (`ID_CLIENT`, `CL_ID_USER`, `NAME`, `FIRST_NAME`, `CI`, `EXP`, `DATE_CREATION`, `STATUS`) VALUES
-(2, 3, 'JOSE', 'PERALES', '12345678', 'LPZ', '2024-03-09', '0'),
-(3, 3, 'JUANJO', 'FLOREZ', '87654321', 'LPZ', '2024-03-09', '0');
+INSERT INTO `client` (`CL_ID_BI`, `CL_US_ID_BI`, `CL_NAME_VC`, `CL_FIRST_NAME_VC`, `CL_CI_VC`, `CL_EXP_VC`, `CL_DATE_CREATION_DT`, `CL_STATUS_BT`) VALUES
+(2, 1, 'JOSE', 'PERALES', '12345678', 'LPZ', '2024-03-21', ''),
+(3, 1, 'JUANJO', 'FLOREZ', '87654321', 'LPZ', '2024-03-21', '');
 
 -- --------------------------------------------------------
 
@@ -53,21 +53,21 @@ INSERT INTO `client` (`ID_CLIENT`, `CL_ID_USER`, `NAME`, `FIRST_NAME`, `CI`, `EX
 --
 
 CREATE TABLE `user` (
-  `ID_USER` bigint(20) UNSIGNED NOT NULL,
-  `NAME` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `USER` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `PASSWORD` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `DATE_CREATION` date NOT NULL,
-  `ROL` char(1) COLLATE utf8_unicode_ci NOT NULL,
-  `STATUS` char(1) COLLATE utf8_unicode_ci NOT NULL
+  `US_ID_BI` bigint(20) UNSIGNED NOT NULL,
+  `US_NAME_VC` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `US_USER_VC` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `US_PASSWORD_VC` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `US_DATE_CREATION_DT` date NOT NULL,
+  `US_ROL_BT` char(0) COLLATE utf8_unicode_ci NOT NULL,
+  `US_STATUS_BT` char(0) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`ID_USER`, `NAME`, `USER`, `PASSWORD`, `DATE_CREATION`, `ROL`, `STATUS`) VALUES
-(3, 'JUAN PEREZ', 'PEREZ', '22988523', '2024-03-09', '1', '0');
+INSERT INTO `user` (`US_ID_BI`, `US_NAME_VC`, `US_USER_VC`, `US_PASSWORD_VC`, `US_DATE_CREATION_DT`, `US_ROL_BT`, `US_STATUS_BT`) VALUES
+(1, 'JUAN PEREZ', 'PEREZ', '22988523', '2024-03-21', '', '');
 
 --
 -- Índices para tablas volcadas
@@ -77,14 +77,14 @@ INSERT INTO `user` (`ID_USER`, `NAME`, `USER`, `PASSWORD`, `DATE_CREATION`, `ROL
 -- Indices de la tabla `client`
 --
 ALTER TABLE `client`
-  ADD PRIMARY KEY (`ID_CLIENT`),
-  ADD KEY `CL_ID_USER` (`CL_ID_USER`);
+  ADD PRIMARY KEY (`CL_ID_BI`),
+  ADD KEY `CL_US_ID_BI` (`CL_US_ID_BI`);
 
 --
 -- Indices de la tabla `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`ID_USER`);
+  ADD PRIMARY KEY (`US_ID_BI`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -94,13 +94,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `client`
 --
 ALTER TABLE `client`
-  MODIFY `ID_CLIENT` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `CL_ID_BI` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID_USER` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `US_ID_BI` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -110,7 +110,7 @@ ALTER TABLE `user`
 -- Filtros para la tabla `client`
 --
 ALTER TABLE `client`
-  ADD CONSTRAINT `client_ibfk_1` FOREIGN KEY (`CL_ID_USER`) REFERENCES `user` (`ID_USER`);
+  ADD CONSTRAINT `client_ibfk_1` FOREIGN KEY (`CL_US_ID_BI`) REFERENCES `user` (`US_ID_BI`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
